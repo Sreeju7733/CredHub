@@ -1,0 +1,33 @@
+name: Update Badges
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Every Sunday at 00:00 (midnight)
+  workflow_dispatch:      # Allows manual trigger
+
+jobs:
+  update-badges:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Needed for auto-commit action to work
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install pyyaml requests python-slugify
+
+      - name: Update badges
+        run: python update-badges.py
+        env:
+          CREDLY_USER_ID: ${{ secrets.CREDLY_USER_ID }}
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'Automated badges update'
+          branch: main

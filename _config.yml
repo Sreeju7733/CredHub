@@ -1,0 +1,22 @@
+title: My Professional Badges
+description: A showcase of my professional achievements and certifications
+
+url: "https://sreeju7733.github.io" # Update with your URL
+
+collections:
+  badges:
+    output: true
+    permalink: /badges/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: badges
+    values:
+      layout: badge
+
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-sitemap

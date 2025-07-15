@@ -1,0 +1,135 @@
+---
+---
+
+// Variables
+$primary-color: #0366d6;
+$text-color: #24292e;
+$light-gray: #f6f8fa;
+$border-color: #e1e4e8;
+
+// Base styles
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: $text-color;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 1rem;
+
+    h1 {
+        margin: 0;
+    }
+
+    nav {
+        margin-top: 1rem;
+
+        a {
+            margin-right: 1rem;
+            text-decoration: none;
+            color: $primary-color;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+// Badges grid
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.badge-card {
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid $border-color;
+    }
+
+    .badge-info {
+        padding: 1rem;
+
+        h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #586069;
+        }
+    }
+}
+
+// Badge detail page
+.badge-detail {
+    .badge-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        .badge-image {
+            width: 150px;
+            height: 150px;
+            margin-right: 2rem;
+            border-radius: 8px;
+        }
+
+        .badge-info {
+            .issuer, .date {
+                color: #586069;
+                margin: 0.3rem 0;
+            }
+        }
+    }
+
+    .badge-content {
+        h2 {
+            border-bottom: 1px solid $border-color;
+            padding-bottom: 0.5rem;
+        }
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: $primary-color;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        margin: 1rem 0;
+
+        &:hover {
+            background: darken($primary-color, 10%);
+        }
+    }
+}
+
+footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid $border-color;
+    color: #586069;
+    font-size: 0.9rem;
+}

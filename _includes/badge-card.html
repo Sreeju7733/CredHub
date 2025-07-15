@@ -1,0 +1,9 @@
+<div class="badge-card">
+  <a href="{{ include.badge.url }}">
+    <img src="{{ include.badge.image }}" alt="{{ include.badge.title }}">
+    <div class="badge-info">
+      <h3>{{ include.badge.title }}</h3>
+      <p>{{ include.badge.issued | date: "%b %Y" }}</p>
+    </div>
+  </a>
+</div>
